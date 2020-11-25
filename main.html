@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBox</title>
+    <style>
+        #box{
+           width: 500px;
+           height: 500px;
+           border: 1px solid black;
+           overflow: scroll;
+        }
+        .submit{
+            width: 500px;
+        }
+        .submit input{
+            width: 82%;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+
+    </div>
+    <div class="submit">
+        <input type="text" id="typing">
+        <button onclick="addToBox()">Kirim</button>
+    </div>
+    <script>
+        function addToBox(){
+            var chat = document.getElementById("typing").value;
+            var box = document.getElementById("box");
+            var theKid = document.createElement("p");
+            theKid.innerHTML = chat;
+            box.appendChild(theKid);
+            box.insertBefore(theKid, box.firstChild);
+
+            document.getElementById("typing").value="";
+        }
+    </script>
+</body>
+</html>
